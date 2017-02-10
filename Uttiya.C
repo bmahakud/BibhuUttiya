@@ -38,17 +38,19 @@ TH1F *h=new TH1F("h","h",100,0,100);
    Long64_t nentries = fChain->GetEntriesFast();
 
    Long64_t nbytes = 0, nb = 0;
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
+   for (Long64_t jentry=0; jentry<10000/*nentries*/;jentry++) {
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
 
+  if(JetPt->size()>=1){
 
+    //cout<<"uttiya"<<endl;
 
-    //h->Fill(JetPt->at());
+    h->Fill(JetPt->at(0));
 
-
+   }
 
 
 
